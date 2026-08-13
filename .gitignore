@@ -1,0 +1,43 @@
+# Models
+*.gguf
+*.bin
+*.ggml
+
+# Build trees
+build-*/
+build-base/
+build-kai/
+
+# CMake / compile artifacts
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+*.o
+*.a
+*.so
+*.dylib
+
+# Logs and temp
+*.log
+sweep*.log
+/tmp/
+*.data
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+
+# Large local exports
+*.tar.gz
+arm-inference-audit-export/
