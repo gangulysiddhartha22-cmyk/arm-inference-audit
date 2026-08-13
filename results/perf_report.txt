@@ -1,0 +1,11 @@
+=== PERF CHECK ===
+
+----- build-base -----
+Recording 12 seconds of activity...
+Top relevant functions:
+
+----- build-kai -----
+Recording 12 seconds of activity...
+Top relevant functions:
+
+=== DONE ===

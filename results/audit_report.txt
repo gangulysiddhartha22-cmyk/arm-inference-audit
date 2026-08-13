@@ -1,0 +1,33 @@
+=== arm-inference-audit — dispatch verifier ===
+commit: 9558fa44c
+
+--- build-base ---
+[1] CLAIMS — what runtime output reports
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+build: 9558fa44c (10396)
+ (no KleidiAI indication above = dispatch is invisible at runtime)
+
+[2] CONTAINS — compiled kernel symbols
+ libggml-cpu.so: kai_* = 0   kai_run_matmul* = 0
+ static archives: kai_* = 0
+
+--- build-kai ---
+[1] CLAIMS — what runtime output reports
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+build: 9558fa44c (10396)
+ (no KleidiAI indication above = dispatch is invisible at runtime)
+
+[2] CONTAINS — compiled kernel symbols
+ libggml-cpu.so: kai_* = 149   kai_run_matmul* = 10
+ sample kai_run_matmul symbols:
+   00000000000c4540 T kai_run_matmul_clamp_f32_qai8dxp1x4_qsi8cxp4x4_1x4_neon_dotprod
+   00000000000c4780 T kai_run_matmul_clamp_f32_qai8dxp1x8_qsi8cxp4x8_1x4_neon_dotprod
+   00000000000c3a60 T kai_run_matmul_clamp_f32_qai8dxp4x4_qsi8cxp4x4_16x4_neon_dotprod
+   00000000000c5380 T kai_run_matmul_clamp_f32_qai8dxp4x8_qsi8cxp4x8_16x4_neon_i8mm
+   00000000000c2d40 T kai_run_matmul_clamp_f32_qsi8d32p1x4_qsi4c32p4x4_1x4_neon_dotprod
+   00000000000c2ac0 T kai_run_matmul_clamp_f32_qsi8d32p1x8_qsi4c32p4x8_1x4x32_neon_dotprod
+   00000000000c5f00 T kai_run_matmul_clamp_f32_qsi8d32p1x8_qsi4c32p8x8_1x8_sve_dotprod
+   00000000000c2fc0 T kai_run_matmul_clamp_f32_qsi8d32p4x4_qsi4c32p4x4_16x4_neon_dotprod
+ static archives: kai_* = 0
+
+=== done ===

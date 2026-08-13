@@ -1,0 +1,24 @@
+Locked Benchmark Methodology
+============================
+
+Commit: 9558fa44c
+Hardware: AWS Graviton4 (Neoverse-V2), 8 cores
+Flags: sve2, i8mm, bf16, asimddp
+
+Models:
+- Qwen2.5-7B-Instruct Q4_0
+- Qwen2.5-0.5B Q4_0
+
+llama-bench settings:
+- Prompt: 512 tokens (-p 512)
+- Generation: 128 tokens (-n 128)
+- Threads tested: 4 and 8
+- Repetitions per point: 3 (-r 3)
+- Outer loops: 4 full matrix repetitions
+- Warmup: 1 untimed run before measurements
+- CPU pinning: taskset -c 0-7
+- Builds compared:
+  - build-base  (KleidiAI off / documented)
+  - build-kai   (KleidiAI on + explicit arch flags)
+
+All results written directly to CSV. No hand-copied numbers.
